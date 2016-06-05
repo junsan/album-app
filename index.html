@@ -49,9 +49,11 @@
 			scope: {
 				album: "="
 			},
-			template: "<div ng-repeat='song in album'>{{song.title}} duration: <input type='number' ng-model='song.duration'> <a href='#' ng-click='delete()'>x</a> </div>",
+			template: "<div ng-repeat='song in album'>{{$index+1}}. {{song.title}} duration: <input type='number' ng-model='song.duration'> <a href='#' ng-click='delete($index)'>x</a> </div>",
 			link: function(scope, elements, attribute) {
-
+				scope.delete = function(index) {
+					scope.album.splice(index, 1);
+				}
 			}
 		};
 	});

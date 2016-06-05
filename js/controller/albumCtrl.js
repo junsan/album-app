@@ -25,7 +25,7 @@ app.controller('albumsCtrl', function($scope) {
 
 	//watch
 	$scope.$watch('maxMins', function(newValue, oldValue) {
-		console.log(newValue, oldValue);
+		//console.log(newValue, oldValue);
 	});
 
 	
@@ -107,7 +107,7 @@ app.controller('albumsCtrl', function($scope) {
 
 		if(!is_exceed()) {
 			if(!no_songs) {
-				console.log(totalListenedSecs);
+				//console.log(totalListenedSecs);
 				$scope.songsListened++;
 				addSong();
 			}
@@ -144,7 +144,7 @@ app.controller('albumsCtrl', function($scope) {
 			$scope.songsListened = -1;
 		}
 
-		console.log($scope.songsListened);
+		//console.log($scope.songsListened);
 	}
 
 });
