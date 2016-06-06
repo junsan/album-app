@@ -1,4 +1,4 @@
-app.controller('albumsCtrl', function($scope) {
+app.controller('albumsCtrl', function($scope, songsAPI) {
 	'use strict';
 
 	$scope.reqSongs = 1;
@@ -7,15 +7,17 @@ app.controller('albumsCtrl', function($scope) {
 	$scope.showAdd = false;
 	var maxSecs = 0;
 	var totalListenedSecs = 0;
-
-
+	$scope.allSongs = [];
+	// get songs from API
+	songsAPI.getSongs().then(function (response) {
+		$scope.allSongs = response.data[0].songs;
+	});
 
 	$scope.album1 = [ 
-				{title: 'Title1', duration: 30},
+				{title: 'Title1', duration: 10},
 				{title: 'Title2', duration: 20},
-				{title: 'Title3', duration: 10}
-		];
-
+				{title: 'Title3', duration: 30}
+		];	
 
 	$scope.album2 = [ 
 				{title: 'Title4', duration: 40},
